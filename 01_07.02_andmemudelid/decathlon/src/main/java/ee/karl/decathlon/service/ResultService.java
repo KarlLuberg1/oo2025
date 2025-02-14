@@ -5,6 +5,7 @@ import ee.karl.decathlon.repository.ResultRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ResultService {
@@ -20,5 +21,9 @@ public class ResultService {
 
     public List<Result> getAllResults() {
         return resultRepository.findAll();
+    }
+
+    public Optional<Result> getResultById(Long id) {
+        return resultRepository.findById(id);
     }
 }

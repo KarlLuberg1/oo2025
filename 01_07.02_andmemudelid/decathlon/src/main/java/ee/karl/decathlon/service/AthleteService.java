@@ -15,6 +15,12 @@ public class AthleteService {
     }
 
     public Athlete saveAthlete(Athlete athlete) {
+        if (athlete.getName() == null || athlete.getName().isEmpty()) {
+            throw new RuntimeException("Athlete name must be provided!");
+        }
+        if (athlete.getCountry() == null || athlete.getCountry().isEmpty()) {
+            throw new RuntimeException("Athlete country must be provided!");
+        }
         return athleteRepository.save(athlete);
     }
 

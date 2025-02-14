@@ -20,6 +20,14 @@ public class AthleteController {
         return athleteService.saveAthlete(athlete);
     }
 
+    @GetMapping("/{id}")
+    public Athlete getAthleteById(@PathVariable Long id) {
+        return athleteService.getAllAthletes().stream()
+                .filter(a -> a.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Athlete with ID " + id + " not found!"));
+    }
+
     @GetMapping
     public List<Athlete> getAllAthletes() {
         return athleteService.getAllAthletes();

@@ -13,7 +13,7 @@ public class Result {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String event; //ala nimi
-    private double score; // tulemus
-    private int points;   //punktid pärast arvutamist
+    private String event; // ala
+    private Double score; // tulemus
+    private int points;   // punktid pärast arvutamist
 }
