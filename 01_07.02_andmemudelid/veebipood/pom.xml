@@ -8,11 +8,19 @@
 		<version>3.4.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+<<<<<<< HEAD
 	<groupId>ee.karl</groupId>
 	<artifactId>veebipood</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>veebipood</name>
 	<description>TLU OOP 2025</description>
+=======
+	<groupId>ee.mihkel</groupId>
+	<artifactId>veebipood</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>veebipood</name>
+	<description>TLÜ OOP 2025</description>
+>>>>>>> 2e9bc7d37bf58b9b86c32893767bff049efed808
 	<url/>
 	<licenses>
 		<license/>
