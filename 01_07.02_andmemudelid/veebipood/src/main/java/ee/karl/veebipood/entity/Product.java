@@ -24,6 +24,13 @@ public class Product {
     private String image; //.jpg
     private boolean active;
 
+    // @ManyToMany, @ManyToOne, @OneToOne - (ntx user ja tema contact andmed), @OneToMany
+
+    @ManyToOne
+    private Category category;
+
+
+
     //public void setPrice(double price) {
     //    this.price = price;
     //   System.out.print("muudeti hinda")
