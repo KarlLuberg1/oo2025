@@ -32,4 +32,16 @@ public class AthleteController {
     public List<Athlete> getAllAthletes() {
         return athleteService.getAllAthletes();
     }
+
+    // Päring ühe sportlase kogupunktide saamiseks(postmanis id järgi)
+    @GetMapping("/{id}/total-points")
+    public int getAthleteTotalPoints(@PathVariable Long id) {
+        return athleteService.getAthleteTotalPoints(id);
+    }
+
+    // Päring kõigi sportlaste kohta koos punktisummadega
+    @GetMapping("/with-points")
+    public List<AthleteService.AthleteWithPoints> getAllAthletesWithPoints() {
+        return athleteService.getAllAthletesWithPoints();
+    }
 }
