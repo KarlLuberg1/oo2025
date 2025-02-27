@@ -20,6 +20,7 @@ public class ResultController {
         this.athleteService = athleteService;
     }
 
+    //tulemuse loomine ja sportlasega sidmine
     @PostMapping
     public Result createResult(@RequestBody Result result, @RequestParam Long athleteId) {
         Athlete athlete = athleteService.getAthleteById(athleteId);  //sportlane id järgi
