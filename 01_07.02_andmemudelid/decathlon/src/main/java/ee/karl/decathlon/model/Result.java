@@ -13,9 +13,9 @@ public class Result {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String event; // kergejõustiku ala
-    private Double score; // tulemus
-    private int points;   // punktid
+    private String event; //ala
+    private Double score; //tulemus
+    private int points;   //punktid
 
     @ManyToOne
     @JoinColumn(name = "athlete_id")
