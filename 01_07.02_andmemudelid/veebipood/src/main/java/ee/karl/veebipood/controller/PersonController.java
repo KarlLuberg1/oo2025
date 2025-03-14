@@ -4,13 +4,14 @@ package ee.karl.veebipood.controller;
 import ee.karl.veebipood.entity.Person;
 import ee.karl.veebipood.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
-
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController //annab voimaluse api paringuid vastu votta
 public class PersonController {
 
