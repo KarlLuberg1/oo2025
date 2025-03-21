@@ -1,59 +1,44 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+//import reactLogo from './assets/react.svg'
+//import viteLogo from '/vite.svg'
 import './App.css'
-import { Category } from './models/Category'
-import { Product } from './models/Products'
+import { Route, Routes } from 'react-router-dom'
+import MainPage from './Pages/MainPage'
+import ManageProducts from './Pages/ManageProducts'
+import Arrayd from './Pages/Arrayd'
+import Menu from './components/Menu'
+import ManageCategories from './Pages/ManageCategories'
+import Cart from './Pages/Cart'
+import Login from './Pages/Login'
+import Signup from './Pages/Signup'
+import Orders from './Pages/Orders'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const sonad = ["Elas", "metsas", "mutionu"];
-  const autod = [
-    {"mark": "Audi", "mudel": "A4", "year": "2020"},
-    {"mark": "Audi", "mudel": "A5", "year": "2020"},
-    {"mark": "Audi", "mudel": "A7", "year": "2020"},
-    {"mark": "Audi", "mudel": "q7", "year": "2020"}
+  
 
-  ];
-
-  const [kategooriad, setKategooriad] = useState<Category[]>([]);
-  const [products, setProducts] = useState<Product[]>([]);
-  // uef -> onload
-
-  useEffect(() => {
-    fetch("http://localhost:8080/categories")// api otspunkt kuhu päring läheb
-            .then(res=>res.json())//kogu tagastus: headers, status code
-            .then(json=> setKategooriad(json))//body: sisu mida tagastab meile backend
-    
-  }, []);
+  
     
   
   return (
     <>
-    <div>{7 + 7}</div>
-    <div>7 + 7</div>
-    <div>{count}</div>
-    {sonad.map(sona => 
-    <div key={sona}>
-      {sona}
-    </div> )}
     
-    {autod.map(auto => <div key={auto.mark+auto.mudel}>
-      {auto.mark} - {auto.mudel}  ({auto.year})
-    </div> )}
+    
+{/* localhost:5173/ --> <div>MainPage</div> */}
 
-    {kategooriad.map(kategooria => 
-    <div key={kategooria.id}>
-      {kategooria.name} {kategooria.active}
-    </div> )}
+    <Menu />
+    
+    <Routes>
+      <Route path="/" element={ <MainPage /> }/>
+      <Route path="/admin/products" element={ <ManageProducts /> }/>
+      <Route path="/admin/categories" element={ <ManageCategories /> }/>
+      <Route path="/arrays" element={ <Arrayd /> }/>
+      <Route path="/cart" element={ <Cart /> }/>
+      <Route path="/login" element={ <Login /> }/>
+      <Route path="/signup" element={ <Signup /> }/>
+      <Route path="/orders" element={ <Orders /> }/>
 
-    {products.map(product => 
-    <div key={product.id}>
-      <div>{product.id}</div>
-      <div>{product.name}</div>
-      <div>{product.image}</div>
-      <div>{product.category?.name}</div>
-    </div> )}
+      <Route path="/*" element={ <div>Page not found</div> }/>
+
+    </Routes>
 
     </>   
   )

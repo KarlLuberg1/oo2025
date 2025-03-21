@@ -2,24 +2,21 @@ package ee.karl.veebipood.controller;
 
 import ee.karl.veebipood.entity.Category;
 import ee.karl.veebipood.repository.CategoryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:5173")
-
 @RestController
 public class CategoryController {
 
-    private final CategoryRepository categoryRepository;
-
-    public CategoryController(CategoryRepository categoryRepository) {
-        this.categoryRepository = categoryRepository;
-    }
+    @Autowired
+    CategoryRepository categoryRepository;
 
     @GetMapping("categories")
     public List<Category> getCategories() {
-        return categoryRepository.findAll(); // SELECT * FROM extends JpaRepository<Category>
+        return categoryRepository.findAll();
     }
 
     @PostMapping("categories")
