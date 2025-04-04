@@ -3,8 +3,11 @@ package ee.karl.veebipood.controller;
 import ee.karl.veebipood.entity.Product;
 import ee.karl.veebipood.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:5173")
@@ -94,7 +97,16 @@ public class ProductController {
         productRepository.save(product);
         return productRepository.findAll();
     }
-}
+
+        @GetMapping("/category-products")
+        public Page<Product> getCategoryProducts(@RequestParam Long categoryId, Pageable pageable) {
+            if (categoryId == -1) {
+                return productRepository.findAll(pageable);
+            }
+        return productRepository.findByCategory_Id(categoryId, pageable);
+
+        }
+    }
 
 
 // 1xx --> informatiivsed - meie ei kasuta
