@@ -3,16 +3,50 @@ import { Athlete } from "../models/Athlete";
 
 function AthletesPage() {
   const [athletes, setAthletes] = useState<Athlete[]>([]);
+  const [country, setCountry] = useState("");
+  const [page, setPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
+  const pageSize = 5;
 
   useEffect(() => {
-    fetch("http://localhost:8080/athletes")
+    let url = `http://localhost:8080/athletes/filter?page=${page}&size=${pageSize}`;
+    if (country.trim() !== "") {
+      url += `&country=${country}`;
+    }
+
+    fetch(url)
       .then(res => res.json())
-      .then(data => setAthletes(data));
-  }, []);
+      .then(data => {
+        setAthletes(data.content);
+        setTotalPages(data.totalPages);
+      });
+  }, [country, page]);
+
+  const handleNext = () => {
+    if (page < totalPages - 1) setPage(prev => prev + 1);
+  };
+
+  const handlePrevious = () => {
+    if (page > 0) setPage(prev => prev - 1);
+  };
 
   return (
-    <div className="container">
+    <div className="container page-content">
       <h2>Sportlased</h2>
+
+      <div>
+        <label>Filtreeri riigi järgi: </label>
+        <input
+          type="text"
+          value={country}
+          onChange={(e) => {
+            setPage(0);
+            setCountry(e.target.value);
+          }}
+          placeholder="Näiteks Estonia"
+        />
+      </div>
+          
       <table className="table table-striped">
         <thead>
           <tr>
@@ -31,6 +65,16 @@ function AthletesPage() {
           ))}
         </tbody>
       </table>
+
+      <div>
+        <button onClick={handlePrevious} disabled={page === 0}>
+          Eelmine
+        </button>
+        <span> Leht {page + 1} / {totalPages} </span>
+        <button onClick={handleNext} disabled={page >= totalPages - 1}>
+          Järgmine
+        </button>
+      </div>
     </div>
   );
 }

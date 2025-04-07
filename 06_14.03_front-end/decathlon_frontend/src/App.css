@@ -5,3 +5,16 @@
   text-align: center;
   width: 100%;
 }
+
+input, button {
+  background-color: white;
+  color: black;
+}
+
+.page-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 80px; /* nüüd see kindlasti töötab */
+  text-align: left;
+}

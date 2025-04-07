@@ -11,7 +11,7 @@ function ResultsPage() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container page-content">
       <h2>Tulemused</h2>
       <table className="table table-striped">
         <thead>

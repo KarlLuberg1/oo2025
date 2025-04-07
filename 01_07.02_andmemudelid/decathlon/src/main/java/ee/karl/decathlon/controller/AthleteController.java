@@ -2,6 +2,8 @@ package ee.karl.decathlon.controller;
 
 import ee.karl.decathlon.model.Athlete;
 import ee.karl.decathlon.service.AthleteService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,5 +46,16 @@ public class AthleteController {
     @GetMapping("/with-points")
     public List<AthleteService.AthleteWithPoints> getAllAthletesWithPoints() {
         return athleteService.getAllAthletesWithPoints();
+    }
+
+    @GetMapping("/filter")
+    public Page<Athlete> getFilteredAthletes(
+            @RequestParam(required = false) String country,
+            Pageable pageable
+    ) {
+        if (country == null || country.isBlank()) {
+            return athleteService.getAllAthletesPaged(pageable);
+        }
+        return athleteService.getAthletesByCountry(country, pageable);
     }
 }

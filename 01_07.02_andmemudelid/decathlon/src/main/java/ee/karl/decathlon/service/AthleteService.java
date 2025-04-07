@@ -5,6 +5,8 @@ import ee.karl.decathlon.model.Result;
 import ee.karl.decathlon.repository.AthleteRepository;
 import ee.karl.decathlon.repository.ResultRepository;
 import lombok.Data;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -62,5 +64,14 @@ public class AthleteService {
         private final String name;
         private final String country;
         private final int totalPoints;
+    }
+
+    //pagineerimine
+    public Page<Athlete> getAllAthletesPaged(Pageable pageable) {
+        return athleteRepository.findAll(pageable);
+    }
+
+    public Page<Athlete> getAthletesByCountry(String country, Pageable pageable) {
+        return athleteRepository.findByCountry(country, pageable);
     }
 }
