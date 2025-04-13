@@ -49,4 +49,9 @@ public class ResultController {
     public List<Result> getAllResults() {
         return resultService.getAllResults();
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteResult(@PathVariable Long id) {
+        resultService.deleteResult(id);
+    }
 }

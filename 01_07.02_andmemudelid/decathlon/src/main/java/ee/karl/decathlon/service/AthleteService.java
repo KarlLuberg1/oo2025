@@ -57,6 +57,10 @@ public class AthleteService {
                 .collect(Collectors.toList());
     }
 
+    public void deleteAthlete(Long id) {
+        athleteRepository.deleteById(id);
+    }
+
     //sportlane koos tema punktidega
     @Data
     public static class AthleteWithPoints {

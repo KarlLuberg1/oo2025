@@ -26,4 +26,8 @@ public class ResultService {
     public Optional<Result> getResultById(Long id) {
         return resultRepository.findById(id);
     }
+
+    public void deleteResult(Long id) {
+        resultRepository.deleteById(id);
+    }
 }

@@ -58,4 +58,10 @@ public class AthleteController {
         }
         return athleteService.getAthletesByCountry(country, pageable);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteAthlete(@PathVariable Long id) {
+        athleteService.deleteAthlete(id);
+    }
+
 }

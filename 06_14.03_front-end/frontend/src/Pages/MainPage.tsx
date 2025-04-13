@@ -57,7 +57,7 @@ function MainPage() {
         <option>2</option>
         <option>3</option>
       </select>
-      <button onClick={() => showByCategory(-1)}>Kõik kategooriad</button>
+      <button onClick={() => showByCategory(-1, 0)}>Kõik kategooriad</button>
     {kategooriad.map(kategooria => 
     <button key={kategooria.id} onClick={() => showByCategory(kategooria.id, 0)}>
       {kategooria.name}

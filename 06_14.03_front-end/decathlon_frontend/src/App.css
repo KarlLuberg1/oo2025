@@ -12,9 +12,8 @@ input, button {
 }
 
 .page-content {
-  max-width: 800px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 20px;
-  padding-top: 80px; /* nüüd see kindlasti töötab */
-  text-align: left;
+  padding-top: 80px;
+  text-align: center;
 }
