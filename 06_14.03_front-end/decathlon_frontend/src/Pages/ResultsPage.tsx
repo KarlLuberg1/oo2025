@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Result } from "../models/Result";
+import { Link } from "react-router-dom";
 
 function ResultsPage() {
   const [results, setResults] = useState<Result[]>([]);
@@ -29,6 +30,9 @@ function ResultsPage() {
               <td>{result.event}</td>
               <td>{result.score}</td>
               <td>{result.points}</td>
+              <Link to={"/results/" + result.id}>
+              <button>Vt lähemalt</button>
+              </Link>
             </tr>
           ))}
         </tbody>

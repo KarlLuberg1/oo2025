@@ -11,12 +11,10 @@ import Cart from './Pages/Cart'
 import Login from './Pages/Login'
 import Signup from './Pages/Signup'
 import Orders from './Pages/Orders'
+import SingleProduct from './Pages/SingleProduct'
+import EditProduct from './Pages/EditProduct'
 
 function App() {
-  
-
-  
-    
   
   return (
     <>
@@ -30,11 +28,14 @@ function App() {
       <Route path="/" element={ <MainPage /> }/>
       <Route path="/admin/products" element={ <ManageProducts /> }/>
       <Route path="/admin/categories" element={ <ManageCategories /> }/>
+      <Route path="/admin/editproduct/:productId" element={ <EditProduct /> }/>
+
       <Route path="/arrays" element={ <Arrayd /> }/>
       <Route path="/cart" element={ <Cart /> }/>
       <Route path="/login" element={ <Login /> }/>
       <Route path="/signup" element={ <Signup /> }/>
       <Route path="/orders" element={ <Orders /> }/>
+      <Route path="/product/:productId" element={ <SingleProduct /> }/>
 
       <Route path="/*" element={ <div>Page not found</div> }/>
 

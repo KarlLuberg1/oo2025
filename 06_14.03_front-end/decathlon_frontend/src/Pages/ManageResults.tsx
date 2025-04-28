@@ -3,6 +3,7 @@ import { Result } from "../models/Result";
 import { Athlete } from "../models/Athlete";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 
 function ManageResults() {
   const [results, setResults] = useState<Result[]>([]);
@@ -62,16 +63,16 @@ function ManageResults() {
     <div className="container page-content">
       <h2>Manage Results</h2>
 
-      <label>Event</label><br />
+      <label>Ala</label><br />
       <input ref={eventRef} type="text" /><br />
 
-      <label>Score</label><br />
+      <label>Tulemus</label><br />
       <input ref={scoreRef} type="number" /><br />
 
-      <label>Points</label><br />
+      <label>Punktid</label><br />
       <input ref={pointsRef} type="number" /><br />
 
-      <label>Athlete</label><br />
+      <label>Spotlane</label><br />
       <select ref={athleteRef}>
         {athletes.map(athlete => (
           <option key={athlete.id} value={athlete.id}>
@@ -80,16 +81,16 @@ function ManageResults() {
         ))}
       </select><br /><br />
 
-      <button onClick={addResult}>Add Result</button>
+      <button onClick={addResult}>Lisa tulemus</button>
 
       <table>
         <thead>
           <tr>
             <th>ID</th>
-            <th>Event</th>
-            <th>Score</th>
-            <th>Points</th>
-            <th>Athlete</th>
+            <th>Ala</th>
+            <th>Tulemus</th>
+            <th>Punktid</th>
+            <th>Sportlane</th>
             <th></th>
           </tr>
         </thead>
@@ -102,7 +103,12 @@ function ManageResults() {
               <td>{result.points}</td>
               <td>{result.athlete?.name ?? "—"}</td>
               <td>
-                <button onClick={() => deleteResult(result.id)}>Delete</button>
+                <button onClick={() => deleteResult(result.id)}>Kustuta</button>
+              </td>
+              <td>
+                <Link to={"/admin/edit-result/" + result.id}>
+                  <button>Muuda</button>
+                </Link>
               </td>
             </tr>
           ))}

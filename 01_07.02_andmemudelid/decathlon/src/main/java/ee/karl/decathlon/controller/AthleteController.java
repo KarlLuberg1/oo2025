@@ -59,6 +59,12 @@ public class AthleteController {
         return athleteService.getAthletesByCountry(country, pageable);
     }
 
+    @PutMapping
+    public Athlete updateAthlete(@RequestBody Athlete athlete) {
+        return athleteService.saveAthlete(athlete);
+    }
+
+
     @DeleteMapping("/{id}")
     public void deleteAthlete(@PathVariable Long id) {
         athleteService.deleteAthlete(id);

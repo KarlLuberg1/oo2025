@@ -15,8 +15,8 @@ function Menu() {
             <Nav.Link as={Link} to="/athletes">Sportlased</Nav.Link>
             <Nav.Link as={Link} to="/results">Tulemused</Nav.Link>
             <NavDropdown title="Admin" id="collapsible-nav-dropdown">
-            <NavDropdown.Item as={Link} to="/admin/manage-athlete">Lisa sportlane</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="/admin/manage-result">Lisa tulemus</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/admin/manage-athlete">Lisa / muuda sportlasi</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/admin/manage-result">Lisa / muuda tulemusi</NavDropdown.Item>
               {/* <NavDropdown.Item as={Link} to="/">Something</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/">
@@ -25,8 +25,8 @@ function Menu() {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link as={Link} to="/login">Login</Nav.Link>
-            <Nav.Link as={Link} to="/signup">Signup</Nav.Link>
+            <Nav.Link as={Link} to="/login">Logi sisse</Nav.Link>
+            <Nav.Link as={Link} to="/signup">Registreeri</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

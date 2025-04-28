@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { Athlete } from "../models/Athlete";
+import { Link } from "react-router-dom";
 
 function AthletesPage() {
   const [athletes, setAthletes] = useState<Athlete[]>([]);
   const [country, setCountry] = useState("");
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
-  const pageSize = 5;
+  const pageSize = 3;
 
   useEffect(() => {
     let url = `http://localhost:8080/athletes/filter?page=${page}&size=${pageSize}`;
@@ -43,7 +44,7 @@ function AthletesPage() {
             setPage(0);
             setCountry(e.target.value);
           }}
-          placeholder="Näiteks Estonia"
+          placeholder="Näiteks Eesti"
         />
       </div>
           
@@ -61,6 +62,10 @@ function AthletesPage() {
               <td>{athlete.name}</td>
               <td>{athlete.country}</td>
               <td>{athlete.age}</td>
+              <Link to={"/athletes/" + athlete.id}>
+              <button>Vt lähemalt</button>
+              </Link>
+              
             </tr>
           ))}
         </tbody>

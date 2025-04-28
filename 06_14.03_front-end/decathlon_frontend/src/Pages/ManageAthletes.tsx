@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Athlete } from "../models/Athlete";
 import { ToastContainer, toast } from 'react-toastify';
+import { Link } from "react-router-dom";
 
 function ManageAthletes() {
 
@@ -59,26 +60,29 @@ const countryRef = useRef<HTMLInputElement>(null);
   return (
     
     <div className="container page-content">
-      <h2>Manage Athletes</h2>
+      <h2>Uus sportlane</h2>
   
-      <label>Name</label><br />
+      <label>Nimi</label><br />
       <input ref={nameRef} type="text" /><br />
   
-      <label>Age</label><br />
+      <label>Vanus</label><br />
       <input ref={ageRef} type="number" /><br />
   
-      <label>Country</label><br />
+      <label>Riik</label><br />
       <input ref={countryRef} type="text" /><br />
   
-      <button onClick={addAthlete}>Add Athlete</button>
+      <button onClick={addAthlete}>Lisa sportlane</button>
   
+      <h2>Sportlased</h2>
+      <br />
+
       <table>
         <thead>
           <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Country</th>
+            <th>Nimi</th>
+            <th>Vanus</th>
+            <th>Riik</th>
             <th></th>
           </tr>
         </thead>
@@ -90,7 +94,12 @@ const countryRef = useRef<HTMLInputElement>(null);
               <td>{athlete.age}</td>
               <td>{athlete.country}</td>
               <td>
-                <button onClick={() => deleteAthlete(athlete.id)}>Delete</button>
+                <button onClick={() => deleteAthlete(athlete.id)}>Kustuta</button>
+              </td>
+              <td>
+                <Link to={"/admin/edit-athlete/" + athlete.id}>
+                  <button>Muuda</button>
+                </Link>
               </td>
             </tr>
           ))}

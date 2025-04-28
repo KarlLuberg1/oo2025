@@ -45,6 +45,12 @@ public class ResultController {
         return result.get();
     }
 
+    @PutMapping
+    public Result updateResult(@RequestBody Result result) {
+        return resultService.saveResult(result);
+    }
+
+
     @GetMapping
     public List<Result> getAllResults() {
         return resultService.getAllResults();

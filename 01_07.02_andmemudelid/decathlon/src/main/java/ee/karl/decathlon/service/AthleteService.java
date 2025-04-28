@@ -24,14 +24,22 @@ public class AthleteService {
     }
 
     public Athlete saveAthlete(Athlete athlete) {
-        if (athlete.getName() == null || athlete.getName().isEmpty()) {
-            throw new RuntimeException("Athlete name must be provided!");
+        if (athlete.getId() == null) {
+            // Kui ID puudub, loob uue
+            return athleteRepository.save(athlete);
+        } else {
+            // Kui ID olemas, kontrollib kas sportlane olemas ja uuendab
+            Athlete existingAthlete = athleteRepository.findById(athlete.getId())
+                    .orElseThrow(() -> new RuntimeException("Athlete not found with ID: " + athlete.getId()));
+
+            existingAthlete.setName(athlete.getName());
+            existingAthlete.setAge(athlete.getAge());
+            existingAthlete.setCountry(athlete.getCountry());
+
+            return athleteRepository.save(existingAthlete);
         }
-        if (athlete.getCountry() == null || athlete.getCountry().isEmpty()) {
-            throw new RuntimeException("Athlete country must be provided!");
-        }
-        return athleteRepository.save(athlete);
     }
+
 
     public List<Athlete> getAllAthletes() {
         return athleteRepository.findAll();
