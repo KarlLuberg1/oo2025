@@ -13,6 +13,7 @@ import Signup from './Pages/Signup'
 import Orders from './Pages/Orders'
 import SingleProduct from './Pages/SingleProduct'
 import EditProduct from './Pages/EditProduct'
+import Map from './Pages/Map'
 
 function App() {
   
@@ -36,7 +37,7 @@ function App() {
       <Route path="/signup" element={ <Signup /> }/>
       <Route path="/orders" element={ <Orders /> }/>
       <Route path="/product/:productId" element={ <SingleProduct /> }/>
-
+      <Route path="/map" element={ <Map /> }/>
       <Route path="/*" element={ <div>Page not found</div> }/>
 
     </Routes>

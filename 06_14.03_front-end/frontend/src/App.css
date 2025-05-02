@@ -16,3 +16,7 @@ table img {
   height: 50px;
 }
 
+.map {
+  height: 300px;
+  border radius: 20px;
+}

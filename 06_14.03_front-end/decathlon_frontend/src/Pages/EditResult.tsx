@@ -98,7 +98,7 @@ function EditResult() {
 
       <label>Spotlane</label><br />
 
-      <select ref={athleteRef} defaultValue={result.athlete?.id?.toString()}>
+      <select ref={athleteRef}>
 
         {athletes.map(athlete => (
           <option key={athlete.id} value={athlete.id}>
