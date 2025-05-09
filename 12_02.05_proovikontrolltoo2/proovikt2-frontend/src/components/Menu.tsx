@@ -14,6 +14,9 @@ function Menu() {
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">Sõnad</Nav.Link>
             <Nav.Link as={Link} to="/add-word">Lisa sõna</Nav.Link>
+            <Nav.Link as={Link} to="/admins">Haldajad</Nav.Link>
+            <Nav.Link as={Link} to="/add-admin">Lisa haldaja</Nav.Link>
+
           </Nav>
         </Navbar.Collapse>
       </Container>

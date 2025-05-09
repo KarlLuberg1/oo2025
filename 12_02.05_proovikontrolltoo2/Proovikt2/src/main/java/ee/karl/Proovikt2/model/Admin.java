@@ -1,5 +1,6 @@
 package ee.karl.Proovikt2.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,8 +17,8 @@ public class Admin {
     private Long id;
 
     private String name;
-    private String email;
 
     @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Word> words;
 }

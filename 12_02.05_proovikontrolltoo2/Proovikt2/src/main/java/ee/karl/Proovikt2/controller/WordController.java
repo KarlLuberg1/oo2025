@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/words")
 public class WordController {
+
     private final WordService wordService;
 
     public WordController(WordService wordService) {
